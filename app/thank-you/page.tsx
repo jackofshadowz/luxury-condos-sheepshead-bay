@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -44,7 +46,7 @@ export default function ThankYou() {
         <div className="container flex flex-col gap-6 py-8 md:py-12 px-4 md:px-6">
           <div className="flex flex-col items-center gap-4 text-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Bayview Residences. All rights reserved.
+              &copy; {new Date().getFullYear()} Bayview Residences. All rights reserved.
             </p>
           </div>
         </div>
