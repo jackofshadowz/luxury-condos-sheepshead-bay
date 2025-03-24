@@ -443,7 +443,21 @@ export default function Home() {
               </div>
               <div id="contact-form" className="bg-background p-4 md:p-8 rounded-lg border">
                 <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Schedule a Private Tour</h3>
-                <form className="space-y-3 md:space-y-4">
+                <form 
+                  name="contact" 
+                  method="POST" 
+                  data-netlify="true" 
+                  netlify-honeypot="bot-field"
+                  className="space-y-3 md:space-y-4"
+                >
+                  {/* Hidden field for Netlify Forms */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  
+                  {/* Honeypot field to prevent spam */}
+                  <div className="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                  </div>
+                  
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                     <div className="space-y-2">
                       <label
@@ -452,7 +466,7 @@ export default function Home() {
                       >
                         First Name
                       </label>
-                      <Input id="first-name" placeholder="Enter your first name" />
+                      <Input id="first-name" name="first-name" placeholder="Enter your first name" required />
                     </div>
                     <div className="space-y-2">
                       <label
@@ -461,7 +475,7 @@ export default function Home() {
                       >
                         Last Name
                       </label>
-                      <Input id="last-name" placeholder="Enter your last name" />
+                      <Input id="last-name" name="last-name" placeholder="Enter your last name" required />
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -471,7 +485,7 @@ export default function Home() {
                     >
                       Email
                     </label>
-                    <Input id="email" type="email" placeholder="Enter your email" />
+                    <Input id="email" name="email" type="email" placeholder="Enter your email" required />
                   </div>
                   <div className="space-y-2">
                     <label
@@ -480,7 +494,7 @@ export default function Home() {
                     >
                       Phone
                     </label>
-                    <Input id="phone" type="tel" placeholder="Enter your phone number" />
+                    <Input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required />
                   </div>
                   <div className="space-y-2">
                     <label
@@ -491,11 +505,14 @@ export default function Home() {
                     </label>
                     <select
                       id="residence-type"
+                      name="residence-type"
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      required
                     >
                       <option value="">Select a residence type</option>
                       <option value="one-bedroom">One Bedroom</option>
                       <option value="two-bedroom">Two Bedroom</option>
+                      <option value="three-bedroom">Three Bedroom</option>
                       <option value="penthouse">Penthouse</option>
                     </select>
                   </div>
@@ -508,6 +525,7 @@ export default function Home() {
                     </label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Enter your message"
                       className="min-h-[100px] md:min-h-[120px]"
                     />
