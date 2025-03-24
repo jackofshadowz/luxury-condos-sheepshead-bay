@@ -6,8 +6,35 @@ import { Textarea } from "@/components/ui/textarea"
 import { ChevronRight, Phone, Mail, Clock, MapPin } from "lucide-react"
 import { MobileNav } from "./components/mobile-nav"
 import HomepageVideoSection from "./components/homepage-video-section"
+import { useState } from "react"
 
 export default function Home() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitting(true);
+    
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => {
+        setFormSubmitted(true);
+        setSubmitting(false);
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        setSubmitting(false);
+      });
+  };
+  
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -443,97 +470,131 @@ export default function Home() {
               </div>
               <div id="contact-form" className="bg-background p-4 md:p-8 rounded-lg border">
                 <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Schedule a Private Tour</h3>
-                <form 
-                  name="contact" 
-                  method="POST" 
-                  data-netlify="true" 
-                  netlify-honeypot="bot-field"
-                  className="space-y-3 md:space-y-4"
-                >
-                  {/* Hidden field for Netlify Forms */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  
-                  {/* Honeypot field to prevent spam */}
-                  <div className="hidden">
-                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                
+                {formSubmitted ? (
+                  <div className="bg-green-50 border border-green-200 rounded-md p-4 mb-4">
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-green-800">Thank you for your interest!</h3>
+                        <div className="mt-2 text-sm text-green-700">
+                          <p>Your tour request has been submitted. Our sales team will contact you shortly to confirm your appointment.</p>
+                        </div>
+                        <div className="mt-4">
+                          <button
+                            type="button"
+                            onClick={() => setFormSubmitted(false)}
+                            className="text-sm font-medium text-green-600 hover:text-green-500"
+                          >
+                            Submit another request
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="first-name"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        First Name
-                      </label>
-                      <Input id="first-name" name="first-name" placeholder="Enter your first name" required />
+                ) : (
+                  <form 
+                    name="contact" 
+                    method="POST" 
+                    action="/thank-you"
+                    data-netlify="true" 
+                    netlify-honeypot="bot-field"
+                    className="space-y-3 md:space-y-4"
+                    onSubmit={handleSubmit}
+                  >
+                    {/* Hidden field for Netlify Forms */}
+                    <input type="hidden" name="form-name" value="contact" />
+                    
+                    {/* Honeypot field to prevent spam */}
+                    <div className="hidden">
+                      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="first-name"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          First Name
+                        </label>
+                        <Input id="first-name" name="first-name" placeholder="Enter your first name" required />
+                      </div>
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="last-name"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          Last Name
+                        </label>
+                        <Input id="last-name" name="last-name" placeholder="Enter your last name" required />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label
-                        htmlFor="last-name"
+                        htmlFor="email"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        Last Name
+                        Email
                       </label>
-                      <Input id="last-name" name="last-name" placeholder="Enter your last name" required />
+                      <Input id="email" name="email" type="email" placeholder="Enter your email" required />
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="email"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="phone"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Phone
+                      </label>
+                      <Input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required />
+                    </div>
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="residence-type"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Residence Type
+                      </label>
+                      <select
+                        id="residence-type"
+                        name="residence-type"
+                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        required
+                      >
+                        <option value="">Select a residence type</option>
+                        <option value="one-bedroom">One Bedroom</option>
+                        <option value="two-bedroom">Two Bedroom</option>
+                        <option value="three-bedroom">Three Bedroom</option>
+                        <option value="penthouse">Penthouse</option>
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="message"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Enter your message"
+                        className="min-h-[100px] md:min-h-[120px]"
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full text-sm md:text-base"
+                      disabled={submitting}
                     >
-                      Email
-                    </label>
-                    <Input id="email" name="email" type="email" placeholder="Enter your email" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="phone"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Phone
-                    </label>
-                    <Input id="phone" name="phone" type="tel" placeholder="Enter your phone number" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="residence-type"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Residence Type
-                    </label>
-                    <select
-                      id="residence-type"
-                      name="residence-type"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      required
-                    >
-                      <option value="">Select a residence type</option>
-                      <option value="one-bedroom">One Bedroom</option>
-                      <option value="two-bedroom">Two Bedroom</option>
-                      <option value="three-bedroom">Three Bedroom</option>
-                      <option value="penthouse">Penthouse</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Enter your message"
-                      className="min-h-[100px] md:min-h-[120px]"
-                    />
-                  </div>
-                  <Button type="submit" className="w-full text-sm md:text-base">
-                    Schedule Tour
-                  </Button>
-                </form>
+                      {submitting ? 'Submitting...' : 'Schedule Tour'}
+                    </Button>
+                  </form>
+                )}
               </div>
             </div>
           </div>
