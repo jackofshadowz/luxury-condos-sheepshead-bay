@@ -1,0 +1,590 @@
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { ChevronRight, Phone, Mail, Clock, MapPin } from "lucide-react"
+import { MobileNav } from "./components/mobile-nav"
+import HomepageVideoSection from "./components/homepage-video-section"
+
+export default function Home() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 md:h-20 items-center justify-between">
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="text-lg md:text-xl font-bold tracking-tighter">BAYVIEW RESIDENCES</span>
+          </Link>
+          <nav className="hidden md:flex gap-6">
+            <Link href="#residences" className="text-sm font-medium transition-colors hover:text-primary">
+              Residences
+            </Link>
+            <Link href="#amenities" className="text-sm font-medium transition-colors hover:text-primary">
+              Amenities
+            </Link>
+            <Link href="#neighborhood" className="text-sm font-medium transition-colors hover:text-primary">
+              Neighborhood
+            </Link>
+            <Link href="/floor-plans" className="text-sm font-medium transition-colors hover:text-primary">
+              Floor Plans
+            </Link>
+            <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">
+              Contact
+            </Link>
+          </nav>
+          <div className="flex items-center gap-4">
+            <Button asChild className="hidden md:inline-flex">
+              <Link href="#contact-form">Schedule a Tour</Link>
+            </Button>
+            <MobileNav isHomePage={true} />
+          </div>
+        </div>
+      </header>
+      <main className="flex-1">
+        <section className="relative">
+          <div className="absolute inset-0 z-10 bg-black/30" />
+          <div className="relative h-[70vh] md:h-[90vh] overflow-hidden">
+            {/* Video container with custom styling to hide YouTube elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="relative w-full h-full pt-[56.25%]">
+                <iframe
+                  className="absolute inset-0 w-[120%] h-[120%] left-[-10%] top-[-10%]"
+                  src="https://www.youtube.com/embed/FyFqWzkq8UU?start=134&end=389&autoplay=1&mute=1&controls=0&loop=1&playlist=FyFqWzkq8UU&rel=0&modestbranding=1"
+                  title="Waterfront View"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="eager"
+                ></iframe>
+              </div>
+            </div>
+            {/* Additional overlay to block any YouTube UI elements */}
+            <div className="absolute inset-0 bg-transparent pointer-events-none z-10"></div>
+          </div>
+          <div className="absolute inset-0 z-20 flex items-center justify-center">
+            <div className="container px-4 md:px-6 text-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter text-white mb-4 md:mb-6">
+                Luxury Waterfront Living in Sheepshead Bay
+              </h1>
+              <p className="mx-auto max-w-[700px] text-base md:text-lg lg:text-xl text-white/90 mb-6 md:mb-8">
+                Experience unparalleled luxury with breathtaking views of the bay in Brooklyn's most exclusive new
+                address
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Button size="lg" asChild className="text-sm md:text-base">
+                  <Link href="#contact-form">Schedule a Tour</Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-background/20 text-white border-white/20 hover:bg-background/30 text-sm md:text-base"
+                  asChild
+                >
+                  <Link href="#residences">
+                    View Residences <ChevronRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="residences" className="py-12 md:py-20 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
+              <div className="space-y-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">
+                  Exquisite Residences
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-xl">
+                  Meticulously designed living spaces with premium finishes and breathtaking views
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <div className="group relative overflow-hidden rounded-lg border">
+                <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden">
+                  <Image
+                    src="/images/1bedroom.webp"
+                    alt="One Bedroom Residence with Waterfront View"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                    loading="eager"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold">One Bedroom Residence</h3>
+                  <p className="text-sm text-muted-foreground mb-3 md:mb-4">Starting at $1.2M</p>
+                  <p className="mb-3 md:mb-4 text-sm md:text-base">
+                    Elegant one-bedroom residences featuring floor-to-ceiling windows, chef's kitchen, and private
+                    balcony.
+                  </p>
+                  <Button variant="outline" className="w-full text-sm md:text-base" asChild>
+                    <Link href="/floor-plans">View Floor Plans</Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="group relative overflow-hidden rounded-lg border">
+                <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden">
+                  <Image
+                    src="/images/2bedroom.webp"
+                    alt="Two Bedroom Residence with Panoramic Waterfront View"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold">Two Bedroom Residence</h3>
+                  <p className="text-sm text-muted-foreground mb-3 md:mb-4">Starting at $2.1M</p>
+                  <p className="mb-3 md:mb-4 text-sm md:text-base">
+                    Spacious two-bedroom residences with expansive living areas, premium appliances, and waterfront
+                    views.
+                  </p>
+                  <Button variant="outline" className="w-full text-sm md:text-base" asChild>
+                    <Link href="/floor-plans">View Floor Plans</Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="group relative overflow-hidden rounded-lg border">
+                <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden">
+                  <Image
+                    src="/images/penthouse.webp"
+                    alt="Penthouse Residence with Panoramic Bay Views"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-xl md:text-2xl font-bold">Penthouse Residence</h3>
+                  <p className="text-sm text-muted-foreground mb-3 md:mb-4">Starting at $4.5M</p>
+                  <p className="mb-3 md:mb-4 text-sm md:text-base">
+                    Exclusive penthouse residences with panoramic bay views, private terraces, and custom luxury
+                    finishes.
+                  </p>
+                  <Button variant="outline" className="w-full text-sm md:text-base" asChild>
+                    <Link href="/floor-plans">View Floor Plans</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="amenities" className="py-12 md:py-20">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
+              <div className="space-y-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">
+                  World-Class Amenities
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-xl">
+                  Indulge in a curated collection of amenities designed for the most discerning residents
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="space-y-6 md:space-y-8">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-primary"
+                    >
+                      <path d="M2 12h20" />
+                      <path d="M2 12a10 10 0 0 1 20 0" />
+                      <path d="M2 12a10 10 0 0 0 20 0" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold">Infinity Edge Pool</h3>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      A stunning waterfront pool with panoramic views of the bay and Manhattan skyline.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-primary"
+                    >
+                      <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                      <line x1="6" y1="1" x2="6" y2="4" />
+                      <line x1="10" y1="1" x2="10" y2="4" />
+                      <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold">Private Spa & Wellness Center</h3>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      Rejuvenate in our spa featuring massage rooms, sauna, steam room, and meditation spaces.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-primary"
+                    >
+                      <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />
+                      <polygon points="12 15 17 21 7 21 12 15" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold">Private Theater</h3>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      An intimate screening room with state-of-art audio and visual technology.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative h-[300px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+                <Image
+                  src="/images/rooftop-pool.webp"
+                  alt="Luxury Rooftop Infinity Pool"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="neighborhood" className="py-12 md:py-20 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
+              <div className="space-y-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">
+                  Sheepshead Bay
+                </h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-xl">
+                  A waterfront enclave offering the perfect balance of urban convenience and coastal tranquility
+                </p>
+              </div>
+            </div>
+            <HomepageVideoSection />
+          </div>
+        </section>
+
+        <section id="gallery" className="py-12 md:py-20">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
+              <div className="space-y-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">Gallery</h2>
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-xl">
+                  Experience the beauty and elegance of Bayview Residences
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/images/building-exterior.webp"
+                  alt="Bayview Residences Building Exterior"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/images/aerial-view.webp"
+                  alt="Aerial View of Sheepshead Bay with Manhattan Skyline"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/images/lobby-seating.webp"
+                  alt="Luxury Lobby Seating Area"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/images/lobby-fireplace.webp"
+                  alt="Elegant Lobby with Fireplace"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/images/rooftop-pool.webp"
+                  alt="Rooftop Infinity Pool with City Views"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative h-[280px] md:h-[320px] lg:h-[360px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/images/metro-overpass.webp"
+                  alt="Neighborhood with Metro Overpass"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-12 md:py-20 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+              <div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter mb-4 md:mb-6">Contact Us</h2>
+                <p className="text-muted-foreground mb-6 md:mb-8 max-w-[500px] text-sm md:text-base">
+                  Schedule a private tour of our residences and experience the luxury of Bayview firsthand.
+                </p>
+                <div className="space-y-4 md:space-y-6">
+                  <div className="flex items-start gap-4">
+                    <Phone className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
+                    <div>
+                      <h3 className="font-medium">Sales Office</h3>
+                      <p className="text-muted-foreground text-sm md:text-base">(718) 555-1234</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Mail className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
+                    <div>
+                      <h3 className="font-medium">Email</h3>
+                      <p className="text-muted-foreground text-sm md:text-base">info@bayviewresidences.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <MapPin className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
+                    <div>
+                      <h3 className="font-medium">Sales Gallery</h3>
+                      <p className="text-muted-foreground text-sm md:text-base">
+                        2500 Emmons Avenue, Brooklyn, NY 11235
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Clock className="h-5 w-5 md:h-6 md:w-6 text-primary shrink-0" />
+                    <div>
+                      <h3 className="font-medium">Hours</h3>
+                      <p className="text-muted-foreground text-sm md:text-base">Monday - Sunday: 10am - 6pm</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="contact-form" className="bg-background p-4 md:p-8 rounded-lg border">
+                <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Schedule a Private Tour</h3>
+                <form className="space-y-3 md:space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="first-name"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        First Name
+                      </label>
+                      <Input id="first-name" placeholder="Enter your first name" />
+                    </div>
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="last-name"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Last Name
+                      </label>
+                      <Input id="last-name" placeholder="Enter your last name" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Email
+                    </label>
+                    <Input id="email" type="email" placeholder="Enter your email" />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="phone"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Phone
+                    </label>
+                    <Input id="phone" type="tel" placeholder="Enter your phone number" />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="residence-type"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Residence Type
+                    </label>
+                    <select
+                      id="residence-type"
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <option value="">Select a residence type</option>
+                      <option value="one-bedroom">One Bedroom</option>
+                      <option value="two-bedroom">Two Bedroom</option>
+                      <option value="penthouse">Penthouse</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder="Enter your message"
+                      className="min-h-[100px] md:min-h-[120px]"
+                    />
+                  </div>
+                  <Button type="submit" className="w-full text-sm md:text-base">
+                    Schedule Tour
+                  </Button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="border-t bg-muted/50">
+        <div className="container flex flex-col gap-6 py-8 md:py-12 px-4 md:px-6 md:flex-row md:justify-between">
+          <div className="space-y-3 md:space-y-4 md:max-w-xs">
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="text-lg md:text-xl font-bold tracking-tighter">BAYVIEW RESIDENCES</span>
+            </Link>
+            <p className="text-xs md:text-sm text-muted-foreground">
+              Luxury waterfront residences in Sheepshead Bay, Brooklyn. A new standard of coastal living.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-8">
+            <div className="space-y-2 md:space-y-3">
+              <h3 className="text-sm font-medium">Explore</h3>
+              <ul className="space-y-1 md:space-y-2">
+                <li>
+                  <Link href="#residences" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Residences
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#amenities" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Amenities
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#neighborhood" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Neighborhood
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#gallery" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Gallery
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-2 md:space-y-3">
+              <h3 className="text-sm font-medium">Contact</h3>
+              <ul className="space-y-1 md:space-y-2">
+                <li>
+                  <Link href="#contact-form" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Schedule a Tour
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Sales Office
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Press Inquiries
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-2 md:space-y-3">
+              <h3 className="text-sm font-medium">Legal</h3>
+              <ul className="space-y-1 md:space-y-2">
+                <li>
+                  <Link href="#contact" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="text-xs md:text-sm text-muted-foreground hover:text-foreground">
+                    Cookie Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="border-t py-4 md:py-6">
+          <div className="container flex flex-col items-center justify-center gap-3 md:gap-4 px-4 md:px-6 md:flex-row md:justify-between">
+            <p className="text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Bayview Residences. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              The complete offering terms are in an offering plan available from sponsor. File No. CD23-0123.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
