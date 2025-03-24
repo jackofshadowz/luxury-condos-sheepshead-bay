@@ -194,7 +194,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="/images/infinity-pool.webp"
+                      src="https://images.pexels.com/photos/12343406/pexels-photo-12343406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Luxury Infinity Pool"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -213,7 +213,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="/images/spa.webp"
+                      src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Private Luxury Spa"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -232,7 +232,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="/images/theater.webp"
+                      src="https://images.pexels.com/photos/8583821/pexels-photo-8583821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Private Theater"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -251,18 +251,18 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="/images/music-room.webp"
-                      alt="Music Room"
+                      src="https://images.pexels.com/photos/5662862/pexels-photo-5662862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      alt="Party Room"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-light mb-3">Music Room</h3>
+                <h3 className="text-xl md:text-2xl font-light mb-3">Party Room</h3>
                 <div className="w-10 h-[1px] bg-primary mb-4"></div>
                 <p className="text-sm md:text-base text-muted-foreground font-light">
-                  Express yourself in our acoustically designed music room, complete with a grand piano and recording equipment.
+                  Entertain guests in our stylish party room, featuring a full bar, lounge seating, and state-of-the-art sound system.
                 </p>
               </div>
               
@@ -270,7 +270,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="/images/fitness.webp"
+                      src="https://images.pexels.com/photos/4162451/pexels-photo-4162451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Wellness Center"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -289,7 +289,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="/images/wine-cellar.webp"
+                      src="https://images.pexels.com/photos/6088389/pexels-photo-6088389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Private Wine Cellar"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -305,11 +305,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="mt-16 md:mt-20 text-center">
-              <Button variant="outline" size="lg" className="rounded-none px-8 py-6 text-sm font-light tracking-wider border-primary text-primary hover:bg-primary/5">
-                <Link href="#contact">EXPLORE ALL AMENITIES</Link>
-              </Button>
-            </div>
+            {/* Removed "Explore All Amenities" button as requested */}
           </div>
         </section>
 
