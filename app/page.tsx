@@ -12,37 +12,6 @@ import { useState } from "react"
 
 export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitting(true);
-    
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => {
-        // Show success message
-        setFormSubmitted(true);
-        setSubmitting(false);
-        form.reset();
-        
-        // Log success for debugging
-        console.log("Form submitted successfully to Netlify");
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        setSubmitting(false);
-        
-        // Try the traditional form submission as fallback
-        form.submit();
-      });
-  };
   
   return (
     <div className="flex min-h-screen flex-col">
@@ -509,18 +478,19 @@ export default function Home() {
                   <form 
                     name="contact" 
                     method="POST" 
-                    action="/thank-you"
-                    data-netlify="true" 
+                    data-netlify="true"
                     netlify-honeypot="bot-field"
                     className="space-y-3 md:space-y-4"
-                    onSubmit={handleSubmit}
+                    onSubmit={(e) => {
+                      // Show the success message after form submission
+                      // This doesn't interfere with Netlify's form handling
+                      setTimeout(() => setFormSubmitted(true), 1000);
+                    }}
                   >
-                    {/* Hidden field for Netlify Forms */}
                     <input type="hidden" name="form-name" value="contact" />
                     
-                    {/* Honeypot field to prevent spam */}
-                    <div className="hidden">
-                      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    <div hidden>
+                      <input name="bot-field" />
                     </div>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
@@ -598,9 +568,8 @@ export default function Home() {
                     <Button 
                       type="submit" 
                       className="w-full text-sm md:text-base"
-                      disabled={submitting}
                     >
-                      {submitting ? 'Submitting...' : 'Schedule Tour'}
+                      Schedule Tour
                     </Button>
                   </form>
                 )}

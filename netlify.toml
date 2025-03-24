@@ -8,9 +8,14 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Form handling settings
+[build.processing]
+  skip_processing = false
+
 [build.processing.html]
   pretty_urls = true
 
+# Redirect rule for form submissions
 [[redirects]]
   from = "/*"
   to = "/index.html"
