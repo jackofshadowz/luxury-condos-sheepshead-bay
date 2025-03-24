@@ -27,13 +27,20 @@ export default function Home() {
       body: new URLSearchParams(formData as any).toString(),
     })
       .then(() => {
+        // Show success message
         setFormSubmitted(true);
         setSubmitting(false);
         form.reset();
+        
+        // Log success for debugging
+        console.log("Form submitted successfully to Netlify");
       })
       .catch((error) => {
         console.error("Form submission error:", error);
         setSubmitting(false);
+        
+        // Try the traditional form submission as fallback
+        form.submit();
       });
   };
   
