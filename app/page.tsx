@@ -270,7 +270,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      src="/images/amenities/wellness-center.jpg"
                       alt="Wellness Center"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
