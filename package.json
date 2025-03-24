@@ -1,0 +1,10 @@
+{
+  "name": "luxury-condos-sheepshead-bay",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Building site...' && cp -r src/* dist/",
+    "dev": "echo 'Starting development server...'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
