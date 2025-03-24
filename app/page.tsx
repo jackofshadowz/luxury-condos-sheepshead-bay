@@ -96,7 +96,7 @@ export default function Home() {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">
                   Exquisite Residences
                 </h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-xl">
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-lg">
                   Meticulously designed living spaces with premium finishes and breathtaking views
                 </p>
               </div>
@@ -108,7 +108,7 @@ export default function Home() {
                     src="/images/1bedroom.webp"
                     alt="One Bedroom Residence with Waterfront View"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105"
+                    className="object-cover transition-transform group-hover:scale-105 residence-image"
                     loading="eager"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
@@ -131,7 +131,7 @@ export default function Home() {
                     src="/images/2bedroom.webp"
                     alt="Two Bedroom Residence with Panoramic Waterfront View"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105"
+                    className="object-cover transition-transform group-hover:scale-105 residence-image"
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
@@ -154,7 +154,7 @@ export default function Home() {
                     src="/images/penthouse.webp"
                     alt="Penthouse Residence with Panoramic Bay Views"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105"
+                    className="object-cover transition-transform group-hover:scale-105 residence-image"
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
@@ -180,104 +180,166 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">
-                  World-Class Amenities
+                  Exclusive Amenities
                 </h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-xl">
-                  Indulge in a curated collection of amenities designed for the most discerning residents
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-lg">
+                  Indulge in a lifestyle of luxury with our curated selection of world-class amenities
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div className="space-y-6 md:space-y-8">
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <path d="M2 12h20" />
-                      <path d="M2 12a10 10 0 0 1 20 0" />
-                      <path d="M2 12a10 10 0 0 0 20 0" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold">Infinity Edge Pool</h3>
-                    <p className="text-muted-foreground text-sm md:text-base">
-                      A stunning waterfront pool with panoramic views of the bay and Manhattan skyline.
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
+                <div className="mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-10 w-10 mb-2 text-primary"
+                  >
+                    <path d="M2 12h20"></path>
+                    <path d="M2 12a10 10 0 0 1 20 0"></path>
+                    <path d="M2 12a10 10 0 0 0 20 0"></path>
+                    <path d="M4 12a8 8 0 0 1 16 0"></path>
+                    <path d="M18 12a6 6 0 0 0-12 0"></path>
+                    <path d="M12 12a1 1 0 0 0 0-1"></path>
+                  </svg>
                 </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                      <line x1="6" y1="1" x2="6" y2="4" />
-                      <line x1="10" y1="1" x2="10" y2="4" />
-                      <line x1="14" y1="1" x2="14" y2="4" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold">Private Spa & Wellness Center</h3>
-                    <p className="text-muted-foreground text-sm md:text-base">
-                      Rejuvenate in our spa featuring massage rooms, sauna, steam room, and meditation spaces.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />
-                      <polygon points="12 15 17 21 7 21 12 15" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold">Private Theater</h3>
-                    <p className="text-muted-foreground text-sm md:text-base">
-                      An intimate screening room with state-of-art audio and visual technology.
-                    </p>
-                  </div>
-                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Infinity Pool</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
+                  Enjoy panoramic bay views from our stunning rooftop infinity pool, complete with private cabanas and
+                  lounge areas.
+                </p>
               </div>
-              <div className="relative h-[300px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
-                <Image
-                  src="/images/rooftop-pool.webp"
-                  alt="Luxury Rooftop Infinity Pool"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  loading="lazy"
-                />
+              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
+                <div className="mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-10 w-10 mb-2 text-primary"
+                  >
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Private Spa</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
+                  Unwind in our exclusive spa featuring massage rooms, sauna, steam room, and a state-of-the-art
+                  hydrotherapy circuit.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
+                <div className="mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-10 w-10 mb-2 text-primary"
+                  >
+                    <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+                    <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                  </svg>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Private Theater</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
+                  Experience cinema in luxury with our private screening room featuring premium seating and
+                  state-of-the-art audio-visual technology.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
+                <div className="mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-10 w-10 mb-2 text-primary"
+                  >
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                  </svg>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Music Room</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
+                  Express yourself in our acoustically designed music room, complete with a grand piano and recording
+                  equipment.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
+                <div className="mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-10 w-10 mb-2 text-primary"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                  </svg>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Wellness Center</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
+                  Maintain your fitness routine in our premium wellness center with personal training, yoga studio, and
+                  cutting-edge equipment.
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
+                <div className="mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-10 w-10 mb-2 text-primary"
+                  >
+                    <path d="M3 6h18"></path>
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                  </svg>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Private Wine Cellar</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
+                  Store and showcase your collection in our temperature-controlled wine cellar with private lockers and
+                  tasting room.
+                </p>
               </div>
             </div>
           </div>
@@ -501,7 +563,7 @@ export default function Home() {
             <Link href="/" className="flex items-center space-x-2">
               <span className="text-lg md:text-xl font-bold tracking-tighter">BAYVIEW RESIDENCES</span>
             </Link>
-            <p className="text-xs md:text-sm text-muted-foreground">
+            <p className="text-xs text-muted-foreground">
               Luxury waterfront residences in Sheepshead Bay, Brooklyn. A new standard of coastal living.
             </p>
           </div>
@@ -576,7 +638,7 @@ export default function Home() {
         <div className="border-t py-4 md:py-6">
           <div className="container flex flex-col items-center justify-center gap-3 md:gap-4 px-4 md:px-6 md:flex-row md:justify-between">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Bayview Residences. All rights reserved.
+              {new Date().getFullYear()} Bayview Residences. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground">
               The complete offering terms are in an offering plan available from sponsor. File No. CD23-0123.
@@ -587,4 +649,3 @@ export default function Home() {
     </div>
   )
 }
-
