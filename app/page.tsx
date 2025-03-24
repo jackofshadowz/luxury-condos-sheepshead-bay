@@ -194,7 +194,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/12343406/pexels-photo-12343406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Luxury Infinity Pool"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -213,7 +213,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      src="https://images.pexels.com/photos/3188/love-romantic-bath-candlelight.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Private Luxury Spa"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -232,7 +232,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/8583821/pexels-photo-8583821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      src="https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Private Theater"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -251,7 +251,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/5662862/pexels-photo-5662862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      src="https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Party Room"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -270,7 +270,7 @@ export default function Home() {
                 <div className="overflow-hidden mb-6">
                   <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/4162451/pexels-photo-4162451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                      src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                       alt="Wellness Center"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
