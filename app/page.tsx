@@ -175,172 +175,140 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="amenities" className="py-12 md:py-20">
+        <section id="amenities" className="py-16 md:py-24 bg-[#f8f9fa]">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
-              <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter">
-                  Exclusive Amenities
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12 md:mb-16">
+              <div className="space-y-3">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
+                  Curated Amenities
                 </h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-lg">
-                  Indulge in a lifestyle of luxury with our curated selection of world-class amenities
+                <div className="w-20 h-[1px] bg-primary mx-auto my-4"></div>
+                <p className="mx-auto max-w-[700px] text-muted-foreground text-sm md:text-base lg:text-lg font-light">
+                  An exceptional collection of spaces designed for the most discerning residents
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
-                <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 mb-2 text-primary"
-                  >
-                    <path d="M2 12h20"></path>
-                    <path d="M2 12a10 10 0 0 1 20 0"></path>
-                    <path d="M2 12a10 10 0 0 0 20 0"></path>
-                    <path d="M4 12a8 8 0 0 1 16 0"></path>
-                    <path d="M18 12a6 6 0 0 0-12 0"></path>
-                    <path d="M12 12a1 1 0 0 0 0-1"></path>
-                  </svg>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+              <div className="group">
+                <div className="overflow-hidden mb-6">
+                  <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
+                    <Image
+                      src="/images/infinity-pool.webp"
+                      alt="Luxury Infinity Pool"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Infinity Pool</h3>
-                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
-                  Enjoy panoramic bay views from our stunning rooftop infinity pool, complete with private cabanas and
-                  lounge areas.
+                <h3 className="text-xl md:text-2xl font-light mb-3">Infinity Pool</h3>
+                <div className="w-10 h-[1px] bg-primary mb-4"></div>
+                <p className="text-sm md:text-base text-muted-foreground font-light">
+                  Enjoy panoramic bay views from our stunning rooftop infinity pool, complete with private cabanas and lounge areas.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
-                <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 mb-2 text-primary"
-                  >
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                  </svg>
+              
+              <div className="group">
+                <div className="overflow-hidden mb-6">
+                  <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
+                    <Image
+                      src="/images/spa.webp"
+                      alt="Private Luxury Spa"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Private Spa</h3>
-                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
-                  Unwind in our exclusive spa featuring massage rooms, sauna, steam room, and a state-of-the-art
-                  hydrotherapy circuit.
+                <h3 className="text-xl md:text-2xl font-light mb-3">Private Spa</h3>
+                <div className="w-10 h-[1px] bg-primary mb-4"></div>
+                <p className="text-sm md:text-base text-muted-foreground font-light">
+                  Unwind in our exclusive spa featuring massage rooms, sauna, steam room, and a state-of-the-art hydrotherapy circuit.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
-                <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 mb-2 text-primary"
-                  >
-                    <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
-                    <polygon points="12 15 17 21 7 21 12 15"></polygon>
-                  </svg>
+              
+              <div className="group">
+                <div className="overflow-hidden mb-6">
+                  <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
+                    <Image
+                      src="/images/theater.webp"
+                      alt="Private Theater"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Private Theater</h3>
-                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
-                  Experience cinema in luxury with our private screening room featuring premium seating and
-                  state-of-the-art audio-visual technology.
+                <h3 className="text-xl md:text-2xl font-light mb-3">Private Theater</h3>
+                <div className="w-10 h-[1px] bg-primary mb-4"></div>
+                <p className="text-sm md:text-base text-muted-foreground font-light">
+                  Experience cinema in luxury with our private screening room featuring premium seating and state-of-the-art audio-visual technology.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
-                <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 mb-2 text-primary"
-                  >
-                    <path d="M9 18V5l12-2v13"></path>
-                    <circle cx="6" cy="18" r="3"></circle>
-                    <circle cx="18" cy="16" r="3"></circle>
-                  </svg>
+              
+              <div className="group">
+                <div className="overflow-hidden mb-6">
+                  <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
+                    <Image
+                      src="/images/music-room.webp"
+                      alt="Music Room"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Music Room</h3>
-                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
-                  Express yourself in our acoustically designed music room, complete with a grand piano and recording
-                  equipment.
+                <h3 className="text-xl md:text-2xl font-light mb-3">Music Room</h3>
+                <div className="w-10 h-[1px] bg-primary mb-4"></div>
+                <p className="text-sm md:text-base text-muted-foreground font-light">
+                  Express yourself in our acoustically designed music room, complete with a grand piano and recording equipment.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
-                <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 mb-2 text-primary"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5v14"></path>
-                  </svg>
+              
+              <div className="group">
+                <div className="overflow-hidden mb-6">
+                  <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
+                    <Image
+                      src="/images/fitness.webp"
+                      alt="Wellness Center"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Wellness Center</h3>
-                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
-                  Maintain your fitness routine in our premium wellness center with personal training, yoga studio, and
-                  cutting-edge equipment.
+                <h3 className="text-xl md:text-2xl font-light mb-3">Wellness Center</h3>
+                <div className="w-10 h-[1px] bg-primary mb-4"></div>
+                <p className="text-sm md:text-base text-muted-foreground font-light">
+                  Maintain your fitness routine in our premium wellness center with personal training, yoga studio, and cutting-edge equipment.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-4 md:p-6 border rounded-lg">
-                <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 mb-2 text-primary"
-                  >
-                    <path d="M3 6h18"></path>
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-                  </svg>
+              
+              <div className="group">
+                <div className="overflow-hidden mb-6">
+                  <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
+                    <Image
+                      src="/images/wine-cellar.webp"
+                      alt="Private Wine Cellar"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Private Wine Cellar</h3>
-                <p className="text-sm md:text-base text-muted-foreground mt-2 md:mt-3">
-                  Store and showcase your collection in our temperature-controlled wine cellar with private lockers and
-                  tasting room.
+                <h3 className="text-xl md:text-2xl font-light mb-3">Private Wine Cellar</h3>
+                <div className="w-10 h-[1px] bg-primary mb-4"></div>
+                <p className="text-sm md:text-base text-muted-foreground font-light">
+                  Store and showcase your collection in our temperature-controlled wine cellar with private lockers and tasting room.
                 </p>
               </div>
+            </div>
+            
+            <div className="mt-16 md:mt-20 text-center">
+              <Button variant="outline" size="lg" className="rounded-none px-8 py-6 text-sm font-light tracking-wider border-primary text-primary hover:bg-primary/5">
+                <Link href="#contact">EXPLORE ALL AMENITIES</Link>
+              </Button>
             </div>
           </div>
         </section>
