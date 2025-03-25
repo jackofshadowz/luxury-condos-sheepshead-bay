@@ -478,14 +478,10 @@ export default function Home() {
                   <form 
                     name="contact" 
                     method="POST" 
+                    action="/thank-you?success=true"
                     data-netlify="true"
                     netlify-honeypot="bot-field"
                     className="space-y-3 md:space-y-4"
-                    onSubmit={(e) => {
-                      // Show the success message after form submission
-                      // This doesn't interfere with Netlify's form handling
-                      setTimeout(() => setFormSubmitted(true), 1000);
-                    }}
                   >
                     <input type="hidden" name="form-name" value="contact" />
                     

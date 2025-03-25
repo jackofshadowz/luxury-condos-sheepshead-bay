@@ -1,9 +1,22 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useSearchParams } from "next/navigation"
 
 export default function ThankYou() {
+  const searchParams = useSearchParams()
+  const success = searchParams.get('success')
+  const [showMessage, setShowMessage] = useState(false)
+  
+  useEffect(() => {
+    // Set showMessage based on URL parameter
+    if (success === 'true') {
+      setShowMessage(true)
+    }
+  }, [success])
+  
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
