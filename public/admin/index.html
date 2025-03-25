@@ -10,44 +10,6 @@
     <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
   </head>
   <body>
-    <!-- Debug info for Netlify Identity -->
-    <div id="debug-info" style="display:none; padding: 10px; background: #f0f0f0; margin-bottom: 20px; font-family: monospace; font-size: 12px;"></div>
-    
-    <!-- This script helps debug Netlify Identity issues -->
-    <script>
-      // Debug helper for Netlify Identity
-      const debugInfo = document.getElementById('debug-info');
-      
-      if (window.netlifyIdentity) {
-        debugInfo.style.display = 'block';
-        debugInfo.innerHTML += '<p>Netlify Identity is loaded</p>';
-        
-        window.netlifyIdentity.on('init', user => {
-          debugInfo.innerHTML += '<p>Netlify Identity initialized</p>';
-          if (user) {
-            debugInfo.innerHTML += '<p>User is authenticated: ' + user.email + '</p>';
-          } else {
-            debugInfo.innerHTML += '<p>No user authenticated</p>';
-          }
-        });
-        
-        window.netlifyIdentity.on('login', user => {
-          debugInfo.innerHTML += '<p>Login event: ' + user.email + '</p>';
-          if (user) {
-            debugInfo.innerHTML += '<p>User logged in: ' + user.email + '</p>';
-          }
-        });
-        
-        window.netlifyIdentity.on('error', err => {
-          debugInfo.innerHTML += '<p>Error: ' + err + '</p>';
-          console.error('Netlify Identity error', err);
-        });
-      } else {
-        debugInfo.style.display = 'block';
-        debugInfo.innerHTML += '<p>Netlify Identity not loaded!</p>';
-      }
-    </script>
-    
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
@@ -56,7 +18,7 @@
       // Initialize Uploadcare
       UPLOADCARE_PUBLIC_KEY = 'demopublickey';
       
-      // Initialize the CMS
+      // Initialize the CMS without showing debug info
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', user => {
           if (!user) {

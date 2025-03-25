@@ -18,7 +18,7 @@ publish_mode: editorial_workflow
 media_folder: "public/images/uploads" 
 public_folder: "/images/uploads"
 
-# Use existing media in the CMS
+# Media library configuration
 media_library:
   name: uploadcare
   config:
@@ -32,6 +32,18 @@ media_library:
 
 # Collections define the structure for the different content types
 collections:
+  - name: "media" # Used in routes, e.g., /admin/collections/media
+    label: "Media" # Used in the UI
+    folder: "content/media" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Alt Text", name: "alt", widget: "string", required: false}
+
   - name: "residences" # Used in routes, e.g., /admin/collections/residences
     label: "Residence" # Used in the UI
     folder: "content/residences" # The path to the folder where the documents are stored
