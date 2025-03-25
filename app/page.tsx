@@ -478,8 +478,8 @@ export default function Home() {
                   <form 
                     name="contact" 
                     method="POST" 
-                    action="/thank-you?success=true"
                     data-netlify="true"
+                    action="/thank-you?success=true"
                     netlify-honeypot="bot-field"
                     className="space-y-3 md:space-y-4"
                   >

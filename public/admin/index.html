@@ -3,29 +3,68 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bayview Residences - Content Management</title>
+    <title>Bayview Residences CMS</title>
     <!-- Include the Netlify Identity Widget for authentication -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Uploadcare widget for better media handling -->
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Debug info for Netlify Identity -->
+    <div id="debug-info" style="display:none; padding: 10px; background: #f0f0f0; margin-bottom: 20px; font-family: monospace; font-size: 12px;"></div>
+    
+    <!-- This script helps debug Netlify Identity issues -->
     <script>
-      // Debug information
+      // Debug helper for Netlify Identity
+      const debugInfo = document.getElementById('debug-info');
+      
       if (window.netlifyIdentity) {
+        debugInfo.style.display = 'block';
+        debugInfo.innerHTML += '<p>Netlify Identity is loaded</p>';
+        
         window.netlifyIdentity.on('init', user => {
-          console.log('Netlify Identity initialized', user ? 'User exists' : 'No user');
+          debugInfo.innerHTML += '<p>Netlify Identity initialized</p>';
+          if (user) {
+            debugInfo.innerHTML += '<p>User is authenticated: ' + user.email + '</p>';
+          } else {
+            debugInfo.innerHTML += '<p>No user authenticated</p>';
+          }
         });
         
         window.netlifyIdentity.on('login', user => {
-          console.log('User logged in:', user);
+          debugInfo.innerHTML += '<p>Login event: ' + user.email + '</p>';
+          if (user) {
+            debugInfo.innerHTML += '<p>User logged in: ' + user.email + '</p>';
+          }
         });
         
         window.netlifyIdentity.on('error', err => {
-          console.error('Netlify Identity error:', err);
+          debugInfo.innerHTML += '<p>Error: ' + err + '</p>';
+          console.error('Netlify Identity error', err);
         });
       } else {
-        console.error('Netlify Identity widget not loaded');
+        debugInfo.style.display = 'block';
+        debugInfo.innerHTML += '<p>Netlify Identity not loaded!</p>';
+      }
+    </script>
+    
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <!-- Initialize CMS with Uploadcare -->
+    <script>
+      // Initialize Uploadcare
+      UPLOADCARE_PUBLIC_KEY = 'demopublickey';
+      
+      // Initialize the CMS
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
       }
     </script>
   </body>

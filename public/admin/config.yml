@@ -18,6 +18,18 @@ publish_mode: editorial_workflow
 media_folder: "public/images/uploads" 
 public_folder: "/images/uploads"
 
+# Use existing media in the CMS
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey # Replace with your Uploadcare public key in production
+    multiple: true
+    tabs: "file url camera"
+    effects: "crop,rotate,enhance,grayscale"
+    imageShrink: "2000x2000"
+    previewStep: true
+    clearable: true
+
 # Collections define the structure for the different content types
 collections:
   - name: "residences" # Used in routes, e.g., /admin/collections/residences
@@ -55,16 +67,45 @@ collections:
         name: "home"
         file: "content/pages/home.md"
         fields:
+          # Hero Section
           - {label: "Hero Title", name: "heroTitle", widget: "string"}
           - {label: "Hero Subtitle", name: "heroSubtitle", widget: "string"}
           - {label: "Hero Background Video", name: "heroVideo", widget: "file", required: false}
           - {label: "Hero Background Image", name: "heroImage", widget: "image", required: false}
+          
+          # About Section
           - {label: "About Section Title", name: "aboutTitle", widget: "string"}
           - {label: "About Section Content", name: "aboutContent", widget: "markdown"}
+          
+          # Residences Section
           - {label: "Residences Section Title", name: "residencesTitle", widget: "string"}
           - {label: "Residences Section Subtitle", name: "residencesSubtitle", widget: "string"}
+          - label: "Residence Types"
+            name: "residenceTypes"
+            widget: "list"
+            fields:
+              - {label: "Type Name", name: "name", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Description", name: "description", widget: "text"}
+          
+          # Amenities Section
           - {label: "Amenities Section Title", name: "amenitiesTitle", widget: "string"}
           - {label: "Amenities Section Subtitle", name: "amenitiesSubtitle", widget: "string"}
+          - label: "Featured Amenities"
+            name: "featuredAmenities"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Description", name: "description", widget: "text"}
+          
+          # Location Section
+          - {label: "Location Section Title", name: "locationTitle", widget: "string", default: "Prime Location"}
+          - {label: "Location Section Content", name: "locationContent", widget: "markdown"}
+          - {label: "Location Image", name: "locationImage", widget: "image", required: false}
+          - {label: "Map Embed URL", name: "mapUrl", widget: "string", required: false}
+          
+          # Contact Section
           - {label: "Contact Section Title", name: "contactTitle", widget: "string"}
           - {label: "Contact Section Subtitle", name: "contactSubtitle", widget: "string"}
       
@@ -76,3 +117,25 @@ collections:
           - {label: "Phone Number", name: "phone", widget: "string"}
           - {label: "Email", name: "email", widget: "string"}
           - {label: "Hours", name: "hours", widget: "string"}
+      
+      - label: "Site Settings"
+        name: "settings"
+        file: "content/pages/settings.md"
+        fields:
+          - {label: "Site Title", name: "siteTitle", widget: "string", default: "Bayview Residences | Luxury Waterfront Condos"}
+          - {label: "Site Description", name: "siteDescription", widget: "text", default: "Experience unparalleled luxury living at Bayview Residences, Brooklyn's premier waterfront condominiums."}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
+          - {label: "Favicon", name: "favicon", widget: "image", required: false}
+          - label: "Social Media"
+            name: "socialMedia"
+            widget: "object"
+            fields:
+              - {label: "Facebook URL", name: "facebook", widget: "string", required: false}
+              - {label: "Instagram URL", name: "instagram", widget: "string", required: false}
+              - {label: "Twitter URL", name: "twitter", widget: "string", required: false}
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - {label: "Copyright Text", name: "copyright", widget: "string", default: " 2025 Bayview Residences. All rights reserved."}
+              - {label: "Additional Footer Text", name: "additionalText", widget: "text", required: false}
