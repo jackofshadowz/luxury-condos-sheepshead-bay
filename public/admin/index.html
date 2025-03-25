@@ -4,15 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bayview Residences - Content Management</title>
-    <!-- Include the Decap CMS styles and script -->
-    <link href="https://unpkg.com/@staticcms/app@^3.0.0/dist/main.css" rel="stylesheet" />
+    <!-- Include the Netlify Identity Widget for authentication -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/@staticcms/app@^3.0.0/dist/static-cms-app.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      window.CMS.init();
+      // Debug information
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+          console.log('Netlify Identity initialized', user ? 'User exists' : 'No user');
+        });
+        
+        window.netlifyIdentity.on('login', user => {
+          console.log('User logged in:', user);
+        });
+        
+        window.netlifyIdentity.on('error', err => {
+          console.error('Netlify Identity error:', err);
+        });
+      } else {
+        console.error('Netlify Identity widget not loaded');
+      }
     </script>
   </body>
 </html>
