@@ -1,10 +1,13 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import Script from "next/script"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: "Bayview Residences | Luxury Waterfront Condos",
+  description: "Experience unparalleled luxury living at Bayview Residences, Brooklyn's premier waterfront condominiums.",
 }
 
 export default function RootLayout({
@@ -14,13 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
-      </head>
-      <body>
+      <head />
+      <body className={inter.className}>
         {children}
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" strategy="afterInteractive" />
+        <Script id="netlify-identity-redirect" strategy="afterInteractive">
+          {`
             if (window.netlifyIdentity) {
               window.netlifyIdentity.on("init", user => {
                 if (!user) {
@@ -30,8 +32,8 @@ export default function RootLayout({
                 }
               });
             }
-          `
-        }} />
+          `}
+        </Script>
       </body>
     </html>
   )

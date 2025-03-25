@@ -3,19 +3,18 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { useSearchParams } from "next/navigation"
 
 export default function ThankYou() {
-  const searchParams = useSearchParams()
-  const success = searchParams.get('success')
   const [showMessage, setShowMessage] = useState(false)
   
+  // Use useEffect to safely access browser-only APIs
   useEffect(() => {
-    // Set showMessage based on URL parameter
+    const params = new URLSearchParams(window.location.search)
+    const success = params.get('success')
     if (success === 'true') {
       setShowMessage(true)
     }
-  }, [success])
+  }, [])
   
   return (
     <div className="flex min-h-screen flex-col">
