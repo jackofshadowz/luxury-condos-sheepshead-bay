@@ -11,10 +11,8 @@ backend:
 site_url: https://bayviewresidences.netlify.app
 display_url: https://bayviewresidences.netlify.app
 
-# Publish mode options:
-# - editorial (default): All entries require review before they are published
-# - simple: All entries are published immediately
-publish_mode: editorial
+# Publish mode - must be one of the allowed values
+publish_mode: editorial_workflow
 
 # Media files will be stored in the repo under this directory
 media_folder: "public/images/uploads" 
