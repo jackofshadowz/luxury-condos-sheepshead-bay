@@ -1,0 +1,75 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# These lines should match your site URL
+site_url: https://bayviewresidences.netlify.app
+display_url: https://bayviewresidences.netlify.app
+
+# Publish mode options:
+# - editorial (default): All entries require review before they are published
+# - simple: All entries are published immediately
+publish_mode: editorial
+
+# Media files will be stored in the repo under this directory
+media_folder: "public/images/uploads" 
+public_folder: "/images/uploads"
+
+# Collections define the structure for the different content types
+collections:
+  - name: "residences" # Used in routes, e.g., /admin/collections/residences
+    label: "Residence" # Used in the UI
+    folder: "content/residences" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
+      - {label: "Bedrooms", name: "bedrooms", widget: "number", min: 1, max: 5}
+      - {label: "Bathrooms", name: "bathrooms", widget: "number", min: 1, max: 5, step: 0.5}
+      - {label: "Square Footage", name: "squareFootage", widget: "number"}
+      - {label: "Price", name: "price", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Floor Plan Image", name: "floorPlanImage", widget: "image", required: false}
+      - {label: "Gallery", name: "gallery", widget: "list", field: {label: Image, name: image, widget: image}, required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      
+  - name: "amenities" # Used in routes, e.g., /admin/collections/amenities
+    label: "Amenity" # Used in the UI
+    folder: "content/amenities" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+      
+  - name: "pages" # Used in routes, e.g., /admin/collections/pages
+    label: "Pages" # Used in the UI
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content/pages/home.md"
+        fields:
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Subtitle", name: "heroSubtitle", widget: "string"}
+          - {label: "Hero Background Video", name: "heroVideo", widget: "file", required: false}
+          - {label: "Hero Background Image", name: "heroImage", widget: "image", required: false}
+          - {label: "About Section Title", name: "aboutTitle", widget: "string"}
+          - {label: "About Section Content", name: "aboutContent", widget: "markdown"}
+          - {label: "Residences Section Title", name: "residencesTitle", widget: "string"}
+          - {label: "Residences Section Subtitle", name: "residencesSubtitle", widget: "string"}
+          - {label: "Amenities Section Title", name: "amenitiesTitle", widget: "string"}
+          - {label: "Amenities Section Subtitle", name: "amenitiesSubtitle", widget: "string"}
+          - {label: "Contact Section Title", name: "contactTitle", widget: "string"}
+          - {label: "Contact Section Subtitle", name: "contactSubtitle", widget: "string"}
+      
+      - label: "Contact Information"
+        name: "contact"
+        file: "content/pages/contact.md"
+        fields:
+          - {label: "Sales Office Address", name: "address", widget: "string"}
+          - {label: "Phone Number", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Hours", name: "hours", widget: "string"}
